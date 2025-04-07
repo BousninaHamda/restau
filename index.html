@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gourmet House | Fine Dining</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #c5a47e;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                        url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            padding: 15px 30px;
+            background: #c5a47e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #a8865e;
+        }
+
+        /* Menu Section */
+        .menu {
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .menu h2 {
+            font-size: 2.5em;
+            margin-bottom: 50px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .menu-item {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Welcome to Gourmet House</h1>
+            <p>Experience fine dining at its best</p>
+            <button class="cta-button">Make Reservation</button>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu" id="menu">
+        <h2>Our Menu</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445" alt="Dish 1">
+                <h3>Grilled Salmon</h3>
+                <p>Fresh Atlantic salmon with herbs and lemon</p>
+                <p>$28.99</p>
+            </div>
+            <!-- Add more menu items here -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <p>Contact us: (123) 456-7890 | info@gourmethouse.com</p>
+        <p>123 Fine Dining Street, Culinary City, CC 12345</p>
+        <p>© 2023 Gourmet House. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Sticky navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.backgroundColor = 'rgba(0, 0, 0, 0.95)';
+            } else {
+                nav.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+            }
+        });
+
+        // Reservation button click handler
+        document.querySelector('.cta-button').addEventListener('click', function() {
+            alert('Please call us at (123) 456-7890 to make a reservation!');
+        });
+    </script>
+</body>
+</html>
